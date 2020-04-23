@@ -1,5 +1,7 @@
 <template>
   <div class="map">
+          <router-view></router-view>
+<button @click="click">cccccc</button>
       <div class="mapWrapper">
         <span
           class="position_flag_icon"
@@ -61,7 +63,22 @@
 
 export default {
   name: 'mapmm',
+  //路由进入时调用
+ beforeRouteEnter (to, from, next) {
+      window.document.title  = "欢迎";
+      next();
+      alert('进入')
+  },
+    //路由修改时调用
+  beforeRouteUpdate(to,from,next){
+      alert('修改')
 
+  },
+   //路由离开时调用
+  beforeRouteLeave(to,from,next){
+      alert('离开')
+
+  },
   data () {
     return {
       bdMap:null,
@@ -78,12 +95,15 @@ export default {
             // this.getDetailInfor()      
         },
   methods:{
+    click(){
+               this.$router.push('/mapmm/test');
+    },
     mksfunc(i){
       this.$set(this.storeItemData, 0, i);
       console.log(this.storeItemData)
     },
     clickCenter(){
-        alert('点击地图中心')
+        // alert('点击地图中心')
     },
     getCenterPoint(){//拖拽地图后获取地图中心点
               console.log('拖拽地图');
@@ -106,7 +126,7 @@ export default {
                 var map = new BMap.Map("bdmapContainer");
                 var point = new BMap.Point(116.308,40); 
                 var mark=new BMap.Marker(point);
-                map.addOverlay(mark);   
+                // map.addOverlay(mark);   
                 mark.enableDragging();    //dragend拖拽
   
                 mark.addEventListener("click", function(e){    //dragend
@@ -228,19 +248,21 @@ export default {
                   map.addEventListener("dragend", that.getCenterPoint);
                   // 定位
                   var geolocation = new BMap.Geolocation();
-                //   geolocation.getCurrentPosition(function (r) {
-                //         if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-                //             // console.log(r.point)
-                //                 var mk = new BMap.Marker(r.point, {enableMassClear: false,});
-                //                 mk.addEventListener('click', function ({type, target}) {
-                //                     that.clickCenter()
-                //                 })
-                //                 map.addOverlay(mk);
-                //                 map.panTo(r.point);
-                //         } else {
-                //             console.log('failed' + this.getStatus());
-                //         }
-                //   }, {enableHighAccuracy: true})
+                 
+                  geolocation.getCurrentPosition(function (r) {
+                    //  alert(0)
+                        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                          //  alert(r.point)
+                                var mk = new BMap.Marker(r.point, {enableMassClear: false,});
+                                mk.addEventListener('click', function ({type, target}) {
+                                    that.clickCenter()
+                                })
+                                map.addOverlay(mk);
+                                map.panTo(r.point);
+                        } else {
+                            console.log('failed' + this.getStatus());
+                        }
+                  }, {enableHighAccuracy: true})
                   that.bdMap = map;
             },
             

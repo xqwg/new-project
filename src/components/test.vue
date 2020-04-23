@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-
+test
   </div>
 </template>
 
@@ -17,8 +17,8 @@ export default {
   }
   ,methods:{
       array(){
-          console.log(new Array(20)[0]);
-          console.log(new Array(undefined,undefined).join('abc'))
+          // console.log(new Array(20)[0]);
+          // console.log(new Array(undefined,undefined).join('abc'))
       }
   }
 }
