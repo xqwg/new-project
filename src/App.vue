@@ -12,7 +12,6 @@
       hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br>
       hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br>
       hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br>
-      hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br> hhhhhh<br>
          <button @click="rout1">while</button>
          　假如我们有一个页面很长，滚动后其中的某个位置后跳转，
          这时新的页面的滚动条位置就会在上一个页面停留的位置；这个时候我们就可以利用afterEach进行重置：
